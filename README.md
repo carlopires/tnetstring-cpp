@@ -11,7 +11,7 @@ A tnetstring encoder/decoder with a pythonic interface for C++
 ### Encoding
 
     const char* name = "Carlo Pires";
-	const int age = 39;
+    const int age = 39;
 	const double salary = 55545888.25852;
 	const bool is_married = true;
 
@@ -136,3 +136,14 @@ To parse a buffer of data of encoded tnetstrings:
     
     tnetstring name1("Carlo Pires")
     tnetstring name2(name1);
+
+### Compiling
+
+There is makefile for *tnetstring_tests.cpp*. Just do a make:
+    
+    make
+    ./tnetstring_tests
+
+### Using
+
+There is no dependences. Just copy the **tnetstring.h** and **tnetstring.cpp** to your project.
