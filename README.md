@@ -32,13 +32,6 @@ A tnetstring encoder/decoder with a pythonic interface for C++
 	cout << "boolean: " << tn_is_married << endl;
 	cout << "null: " << tn_none << endl;
 
-#### Access tnetstring value
-
-    cout << "string: " << tn_name.str_val() << endl;
-	cout << "integer: " << tn_age.lint_val() << endl;
-	cout << "float: " << tn_salary.double_val() << endl;
-	cout << "boolean: " << tn_is_married.bool_val() << endl;
-
 Trying to serialize an undefined tnetstring (with no value) throws an exception:
 
 	tnetstring tn_undefined; // tnetstring has no value
@@ -47,6 +40,13 @@ Trying to serialize an undefined tnetstring (with no value) throws an exception:
 	} catch (TnetstringError&) {
 		cout << "undefined: ok" << endl;
 	}
+
+#### Access tnetstring value
+
+    cout << "string: " << *(tn_name.str_val()) << endl;
+	cout << "integer: " << *(tn_age.lint_val()) << endl;
+	cout << "float: " << *(tn_salary.double_val()) << endl;
+	cout << "boolean: " << *(tn_is_married.bool_val()) << endl;
 
 ### Lists
 
@@ -90,11 +90,6 @@ Accessing a tnetstring in a map by key:
 
     cout << "dict element by key: " << tn_dict["name"] << endl;
 
-Accessing a tnetstring in a map by reference:
-
-	tnetstring* x = &(tn_dict["name"]);
-	cout << "dict element by ref: " << *x << endl;
-
 Map size can be viewed through size method:
 
     cout << "map size: " << tn_dict.size() << endl; // returns 3
@@ -136,6 +131,11 @@ To parse a buffer of data of encoded tnetstrings:
     
     tnetstring name1("Carlo Pires")
     tnetstring name2(name1);
+
+#### Accessing a tnetstring in a map by reference:
+
+	tnetstring* x = &(tn_dict["name"]);
+	cout << "dict element by ref: " << *(*x.str_val()) << endl;
 
 ### Compiling
 

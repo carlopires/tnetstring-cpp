@@ -42,6 +42,12 @@ int main() {
 		cout << "undefined: ok" << endl;
 	}
 
+	// accessing values
+	cout << "string: " << *(tn_name.str_val()) << endl;
+	cout << "integer: " << *(tn_age.lint_val()) << endl;
+	cout << "float: " << fixed << *(tn_salary.double_val()) << endl;
+	cout << "boolean: " << *(tn_is_married.bool_val()) << endl;
+
 	// lists
 	tnetstring tn_list(LIST);
 	tn_list << tn_name << tn_age << tn_salary << tn_is_married << tn_none;
@@ -79,7 +85,12 @@ int main() {
 	tnetstring dup(tn_name);
 	cout << "dup: " << dup << endl;
 
-	// access values
+	// map with sub maps and list
+	tnetstring tn_dict2(DICT);
+	tn_dict2["submap"] = tn_dict;
+	tn_dict2["sublist"] = tn_list;
+	tn_dict2["name"] = tn_name;
+	cout << "dict with list and maps: " << tn_dict2 << endl;
 
 	// parse string
 	{
