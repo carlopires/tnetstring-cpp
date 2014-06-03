@@ -95,6 +95,8 @@ struct ostreambuf : public std::basic_streambuf<char_type, std::char_traits<char
     }
 };
 
+extern const tnetstring EMPTY;
+
 } /* namespace tns */
 
 #endif /* TNETSTRING_H_ */

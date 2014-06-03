@@ -20,6 +20,10 @@ using namespace std;
 
 namespace tns {
 
+// singleton for empty tnetstring
+
+const tnetstring EMPTY;
+
 // CONSTRUCTORS
 
 tnetstring::tnetstring() :
